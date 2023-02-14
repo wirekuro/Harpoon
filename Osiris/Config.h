@@ -325,7 +325,7 @@ public:
     struct Misc {
         Misc() { clanTag[0] = '\0'; name[0] = '\0'; menuKey.keyMode = KeyMode::Toggle; }
 
-        KeyBind menuKey = KeyBind::INSERT;
+        KeyBind menuKey = KeyBind::DEL;
         bool antiAfkKick{ false };
         bool adBlock{ false };
         int forceRelayCluster{ 0 };
