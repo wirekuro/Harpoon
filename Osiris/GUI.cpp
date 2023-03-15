@@ -2331,8 +2331,8 @@ void GUI::renderConfigWindow() noexcept
         ImGui::Columns(1);
 }
 
-void Active() { ImGuiStyle* Style = &ImGui::GetStyle(); Style->Colors[ImGuiCol_Button] = ImColor(25, 30, 34); Style->Colors[ImGuiCol_ButtonActive] = ImColor(25, 30, 34); Style->Colors[ImGuiCol_ButtonHovered] = ImColor(25, 30, 34); }
-void Hovered() { ImGuiStyle* Style = &ImGui::GetStyle(); Style->Colors[ImGuiCol_Button] = ImColor(19, 22, 27); Style->Colors[ImGuiCol_ButtonActive] = ImColor(19, 22, 27); Style->Colors[ImGuiCol_ButtonHovered] = ImColor(19, 22, 27); }
+void Active() { ImGuiStyle* Style = &ImGui::GetStyle(); Style->Colors[ImGuiCol_Button] = ImColor(55, 0, 0); Style->Colors[ImGuiCol_ButtonActive] = ImColor(55, 0, 0); Style->Colors[ImGuiCol_ButtonHovered] = ImColor(55, 0, 0); }
+void Hovered() { ImGuiStyle* Style = &ImGui::GetStyle(); Style->Colors[ImGuiCol_Button] = ImColor(0, 0, 0); Style->Colors[ImGuiCol_ButtonActive] = ImColor(0, 0, 0); Style->Colors[ImGuiCol_ButtonHovered] = ImColor(0, 0, 0); }
 
 
 
@@ -2345,13 +2345,13 @@ void GUI::renderGuiStyle() noexcept
     Style->FrameBorderSize = 2.5;
     Style->Colors[ImGuiCol_WindowBg] = ImColor(0, 0, 0, 0);
     Style->Colors[ImGuiCol_ChildBg] = ImColor(31, 31 ,31);
-    Style->Colors[ImGuiCol_Button] = ImColor(25, 30, 34);
-    Style->Colors[ImGuiCol_ButtonHovered] = ImColor(25, 30, 34);
-    Style->Colors[ImGuiCol_ButtonActive] = ImColor(19, 22, 27);
+    Style->Colors[ImGuiCol_Button] = ImColor(55, 0, 0);
+    Style->Colors[ImGuiCol_ButtonHovered] = ImColor(55, 0, 0);
+    Style->Colors[ImGuiCol_ButtonActive] = ImColor(0, 0, 0);
 
-    Style->Colors[ImGuiCol_ScrollbarGrab] = ImColor(25, 30, 34);
-    Style->Colors[ImGuiCol_ScrollbarGrabActive] = ImColor(25, 30, 34);
-    Style->Colors[ImGuiCol_ScrollbarGrabHovered] = ImColor(25, 30, 34);
+    Style->Colors[ImGuiCol_ScrollbarGrab] = ImColor(55, 0, 0);
+    Style->Colors[ImGuiCol_ScrollbarGrabActive] = ImColor(55, 0, 0);
+    Style->Colors[ImGuiCol_ScrollbarGrabHovered] = ImColor(55, 0, 0);
 
     static auto Name = "Menu";
     static auto Flags = ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoSavedSettings;
@@ -2365,13 +2365,13 @@ void GUI::renderGuiStyle() noexcept
 
     if (ImGui::Begin(Name, NULL, Flags))
     {
-        Style->Colors[ImGuiCol_ChildBg] = ImColor(25, 30, 34);
+        Style->Colors[ImGuiCol_ChildBg] = ImColor(55, 0, 0);
 
         ImGui::BeginChild("##Back", ImVec2{ 854, 549 }, false);
         {
             ImGui::SetCursorPos(ImVec2{ 2, 2 });
 
-            Style->Colors[ImGuiCol_ChildBg] = ImColor(19, 22, 27);
+            Style->Colors[ImGuiCol_ChildBg] = ImColor(0, 0, 0);
 
             ImGui::BeginChild("##Main", ImVec2{ 850, 545 }, false);
             {
@@ -2417,10 +2417,10 @@ void GUI::renderGuiStyle() noexcept
                 ImGui::EndChild();
 
                 ImGui::SetCursorPos(ImVec2{ 0, 45 });
-                Style->Colors[ImGuiCol_ChildBg] = ImColor(25, 30, 34);
-                Style->Colors[ImGuiCol_Button] = ImColor(25, 30, 34);
-                Style->Colors[ImGuiCol_ButtonHovered] = ImColor(25, 30, 34);
-                Style->Colors[ImGuiCol_ButtonActive] = ImColor(19, 22, 27);
+                Style->Colors[ImGuiCol_ChildBg] = ImColor(55, 0, 0);
+                Style->Colors[ImGuiCol_Button] = ImColor(55, 0, 0);
+                Style->Colors[ImGuiCol_ButtonHovered] = ImColor(55, 0, 0);
+                Style->Colors[ImGuiCol_ButtonActive] = ImColor(0, 0, 0);
                 ImGui::BeginChild("##Childs", ImVec2{ 850, 500 }, false);
                 {
                     ImGui::SetCursorPos(ImVec2{ 15, 5 });
@@ -2464,7 +2464,7 @@ void GUI::renderGuiStyle() noexcept
                         ImGui::EndChild();
 
                         ImGui::SetCursorPos(ImVec2{ 100, 5 });
-                        Style->Colors[ImGuiCol_ChildBg] = ImColor(29, 34, 38);
+                        Style->Colors[ImGuiCol_ChildBg] = ImColor(15, 0, 0);
                         Style->ChildRounding = 5;
                         ImGui::BeginChild("##SubMain", ImVec2{ 745, 470 }, false);
                         {
