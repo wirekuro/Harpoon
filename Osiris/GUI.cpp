@@ -1252,11 +1252,11 @@ void GUI::renderStreamProofESPWindow() noexcept
 void GUI::renderVisualsWindow() noexcept
 {
     ImGui::Columns(2, nullptr, false);
-    ImGui::SetColumnOffset(1, 280.0f);
+    ImGui::SetColumnOffset(1, 300.0f);
     constexpr auto playerModels = "Default\0Special Agent Ava | FBI\0Operator | FBI SWAT\0Markus Delrow | FBI HRT\0Michael Syfers | FBI Sniper\0B Squadron Officer | SAS\0Seal Team 6 Soldier | NSWC SEAL\0Buckshot | NSWC SEAL\0Lt. Commander Ricksaw | NSWC SEAL\0Third Commando Company | KSK\0'Two Times' McCoy | USAF TACP\0Dragomir | Sabre\0Rezan The Ready | Sabre\0'The Doctor' Romanov | Sabre\0Maximus | Sabre\0Blackwolf | Sabre\0The Elite Mr. Muhlik | Elite Crew\0Ground Rebel | Elite Crew\0Osiris | Elite Crew\0Prof. Shahmat | Elite Crew\0Enforcer | Phoenix\0Slingshot | Phoenix\0Soldier | Phoenix\0Pirate\0Pirate Variant A\0Pirate Variant B\0Pirate Variant C\0Pirate Variant D\0Anarchist\0Anarchist Variant A\0Anarchist Variant B\0Anarchist Variant C\0Anarchist Variant D\0Balkan Variant A\0Balkan Variant B\0Balkan Variant C\0Balkan Variant D\0Balkan Variant E\0Jumpsuit Variant A\0Jumpsuit Variant B\0Jumpsuit Variant C\0GIGN\0GIGN Variant A\0GIGN Variant B\0GIGN Variant C\0GIGN Variant D\0Street Soldier | Phoenix\0'Blueberries' Buckshot | NSWC SEAL\0'Two Times' McCoy | TACP Cavalry\0Rezan the Redshirt | Sabre\0Dragomir | Sabre Footsoldier\0Cmdr. Mae 'Dead Cold' Jamison | SWAT\0001st Lieutenant Farlow | SWAT\0John 'Van Healen' Kask | SWAT\0Bio-Haz Specialist | SWAT\0Sergeant Bombson | SWAT\0Chem-Haz Specialist | SWAT\0Sir Bloody Miami Darryl | The Professionals\0Sir Bloody Silent Darryl | The Professionals\0Sir Bloody Skullhead Darryl | The Professionals\0Sir Bloody Darryl Royale | The Professionals\0Sir Bloody Loudmouth Darryl | The Professionals\0Safecracker Voltzmann | The Professionals\0Little Kev | The Professionals\0Number K | The Professionals\0Getaway Sally | The Professionals\0";
-    ImGui::Combo("T Player Model", &config->visuals.playerModelT, playerModels);
-    ImGui::Combo("CT Player Model", &config->visuals.playerModelCT, playerModels);
-    ImGui::InputText("Custom Player Model", config->visuals.playerModel, sizeof(config->visuals.playerModel));
+    ImGui::Combo("T Agent", &config->visuals.playerModelT, playerModels);
+    ImGui::Combo("CT Agent", &config->visuals.playerModelCT, playerModels);
+    ImGui::InputText("Custom Agent", config->visuals.playerModel, sizeof(config->visuals.playerModel));
     if (ImGui::IsItemHovered())
         ImGui::SetTooltip("file must be in csgo/models/ directory and must start with models/...");
     ImGui::Checkbox("Disable post-processing", &config->visuals.disablePostProcessing);
@@ -1297,7 +1297,7 @@ void GUI::renderVisualsWindow() noexcept
     ImGui::Checkbox("No hands", &config->visuals.noHands);
     ImGui::Checkbox("No sleeves", &config->visuals.noSleeves);
     ImGui::Checkbox("No weapons", &config->visuals.noWeapons);
-    ImGui::Checkbox("No smoke", &config->visuals.noSmoke);
+    ImGui::Checkbox("No smoke   ", &config->visuals.noSmoke);
     ImGui::SameLine();
     ImGui::Checkbox("Wireframe smoke", &config->visuals.wireframeSmoke);
     ImGui::Checkbox("No molotov", &config->visuals.noMolotov);
@@ -1692,7 +1692,7 @@ void GUI::renderSkinChangerWindow() noexcept
 void GUI::renderMiscWindow() noexcept
 {
     ImGui::Columns(2, nullptr, false);
-    ImGui::SetColumnOffset(1, 230.0f);
+    ImGui::SetColumnOffset(1, 270.0f);
     hotkey3("Menu Key", config->misc.menuKey);
     ImGui::Checkbox("Anti AFK kick", &config->misc.antiAfkKick);
     ImGui::Checkbox("Adblock", &config->misc.adBlock);
@@ -2367,20 +2367,20 @@ void GUI::renderGuiStyle() noexcept
     {
         Style->Colors[ImGuiCol_ChildBg] = ImColor(25, 30, 34);
 
-        ImGui::BeginChild("##Back", ImVec2{ 704, 434 }, false);
+        ImGui::BeginChild("##Back", ImVec2{ 854, 549 }, false);
         {
             ImGui::SetCursorPos(ImVec2{ 2, 2 });
 
             Style->Colors[ImGuiCol_ChildBg] = ImColor(19, 22, 27);
 
-            ImGui::BeginChild("##Main", ImVec2{ 700, 430 }, false);
+            ImGui::BeginChild("##Main", ImVec2{ 850, 545 }, false);
             {
-                ImGui::BeginChild("##UP", ImVec2{ 700, 45 }, false);
+                ImGui::BeginChild("##UP", ImVec2{ 850, 45 }, false);
                 {
                     ImGui::SetCursorPos(ImVec2{ 10, 6 });
                     ImGui::PushFont(fonts.tahoma34); ImGui::Text("Osiris"); ImGui::PopFont();
 
-                    float pos = 305;
+                    float pos = 455;
                     ImGui::SetCursorPos(ImVec2{ pos, 0 });
                     if (activeTab == 1) Active(); else Hovered();
                     if (ImGui::Button("Legitbot", ImVec2{ 75, 45 }))
@@ -2421,7 +2421,7 @@ void GUI::renderGuiStyle() noexcept
                 Style->Colors[ImGuiCol_Button] = ImColor(25, 30, 34);
                 Style->Colors[ImGuiCol_ButtonHovered] = ImColor(25, 30, 34);
                 Style->Colors[ImGuiCol_ButtonActive] = ImColor(19, 22, 27);
-                ImGui::BeginChild("##Childs", ImVec2{ 700, 365 }, false);
+                ImGui::BeginChild("##Childs", ImVec2{ 850, 500 }, false);
                 {
                     ImGui::SetCursorPos(ImVec2{ 15, 5 });
                     Style->ChildRounding = 0;
@@ -2466,7 +2466,7 @@ void GUI::renderGuiStyle() noexcept
                         ImGui::SetCursorPos(ImVec2{ 100, 5 });
                         Style->Colors[ImGuiCol_ChildBg] = ImColor(29, 34, 38);
                         Style->ChildRounding = 5;
-                        ImGui::BeginChild("##SubMain", ImVec2{ 590, 350 }, false);
+                        ImGui::BeginChild("##SubMain", ImVec2{ 745, 470 }, false);
                         {
                             ImGui::SetCursorPos(ImVec2{ 10, 10 });
                             switch (activeTab)
