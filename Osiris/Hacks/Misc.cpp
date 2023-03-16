@@ -2805,6 +2805,22 @@ void Misc::voteRevealer(GameEvent& event) noexcept
     memory->clientMode->getHudChat()->printf(0, " \x0C\u2022Osiris\u2022 %c%s\x01 voted %c%s\x01", isLocal ? '\x01' : color, isLocal ? "You" : entity->getPlayerName().c_str(), color, votedYes ? "Yes" : "No");
 }
 
+void Misc::onVotePass() noexcept
+{
+    if (!config->misc.revealVotes)
+        return;
+
+    memory->clientMode->getHudChat()->printf(0, " \x0C\u2022Osiris\u2022\x01 vote\x06 PASS");
+}
+
+void Misc::onVoteFailed() noexcept
+{
+    if (!config->misc.revealVotes)
+        return;
+
+    memory->clientMode->getHudChat()->printf(0, " \x0C\u2022Osiris\u2022\x01 vote\x07 FAILED");
+}
+
 // ImGui::ShadeVertsLinearColorGradientKeepAlpha() modified to do interpolation in HSV
 static void shadeVertsHSVColorGradientKeepAlpha(ImDrawList* draw_list, int vert_start_idx, int vert_end_idx, ImVec2 gradient_p0, ImVec2 gradient_p1, ImU32 col0, ImU32 col1)
 {

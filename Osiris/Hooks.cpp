@@ -1399,6 +1399,11 @@ static bool __fastcall dispatchUserMessage(void* thisPointer, void* edx, int mes
 {
     static auto original = hooks->client.getOriginal<bool, 38>(messageType, argument, secondArgument, data);
 
+    if (messageType == CS_UM_VotePass)
+        Misc::onVotePass();
+    else if (messageType == CS_UM_VoteFailed)
+        Misc::onVoteFailed();
+
     if (messageType == CS_UM_TextMsg || messageType == CS_UM_HudMsg || messageType == CS_UM_SayText)
     {
         if (config->misc.adBlock && !(*(memory->gameRules))->isValveDS())
