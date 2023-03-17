@@ -1697,7 +1697,13 @@ void GUI::renderMiscWindow() noexcept
     ImGui::Checkbox("Anti AFK kick", &config->misc.antiAfkKick);
     ImGui::Checkbox("Adblock", &config->misc.adBlock);
     ImGui::Combo("Force region", &config->misc.forceRelayCluster, "Off\0Australia\0Austria\0Brazil\0Chile\0Dubai\0France\0Germany\0Hong Kong\0India (Chennai)\0India (Mumbai)\0Japan\0Luxembourg\0Netherlands\0Peru\0Philipines\0Poland\0Singapore\0South Africa\0Spain\0Sweden\0UK\0USA (Atlanta)\0USA (Seattle)\0USA (Chicago)\0USA (Los Angeles)\0USA (Moses Lake)\0USA (Oklahoma)\0USA (Seattle)\0USA (Washington DC)\0");
+    
     ImGui::Checkbox("Auto strafe", &config->misc.autoStrafe);
+    ImGui::SameLine();
+    ImGui::PushID("Auto strafe Key");
+    ImGui::hotkey2("", config->misc.autoStrafeKey);
+    ImGui::PopID();
+
     ImGui::Checkbox("Bunny hop", &config->misc.bunnyHop);
     ImGui::Checkbox("Fast duck", &config->misc.fastDuck);
     ImGui::Checkbox("Moonwalk", &config->misc.moonwalk);

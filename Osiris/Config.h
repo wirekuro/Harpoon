@@ -330,6 +330,7 @@ public:
         bool adBlock{ false };
         int forceRelayCluster{ 0 };
         bool autoStrafe{ false };
+        KeyBind autoStrafeKey{ std::string("autostrafe") };
         bool bunnyHop{ false };
         bool customClanTag{ false };
         bool customName{ false };

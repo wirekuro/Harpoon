@@ -666,6 +666,7 @@ static void from_json(const json& j, Config::Misc& m)
     read(j, "Adblock", m.adBlock);
     read(j, "Force relay", m.forceRelayCluster);
     read(j, "Auto strafe", m.autoStrafe);
+    read(j, "Auto strafe Key", m.autoStrafeKey);
     read(j, "Bunny hop", m.bunnyHop);
     read(j, "Custom clan tag", m.customClanTag);
     read(j, "Clock tag", m.clocktag);
@@ -1327,6 +1328,7 @@ static void to_json(json& j, const Config::Misc& o)
     WRITE("Adblock", adBlock);
     WRITE("Force relay", forceRelayCluster);
     WRITE("Auto strafe", autoStrafe);
+    WRITE("Auto strafe Key", autoStrafeKey);
     WRITE("Bunny hop", bunnyHop);
     WRITE("Custom clan tag", customClanTag);
     WRITE("Clock tag", clocktag);

@@ -1440,6 +1440,7 @@ const bool anyActiveKeybinds() noexcept
     const bool thirdperson = config->visuals.thirdperson && config->visuals.thirdpersonKey.canShowKeybind();
     const bool freeCam = config->visuals.freeCam && config->visuals.freeCamKey.canShowKeybind();
 
+    const bool autostrafe = config->misc.autoStrafe && config->misc.autoStrafeKey.canShowKeybind();
     const bool blockbot = config->misc.blockBot && config->misc.blockBotKey.canShowKeybind();
     const bool edgejump = config->misc.edgeJump && config->misc.edgeJumpKey.canShowKeybind();
     const bool minijump = config->misc.miniJump && config->misc.miniJumpKey.canShowKeybind();
@@ -1454,7 +1455,7 @@ const bool anyActiveKeybinds() noexcept
     return rageBot || minDamageOverride || fakeAngle || antiAimManualForward || antiAimManualBackward || antiAimManualRight  || antiAimManualLeft 
         || doubletap || hideshots
         || legitAntiAim || legitBot || triggerBot || chams || glow || esp
-        || zoom || thirdperson || freeCam || blockbot || edgejump || minijump || jumpBug || edgebug || autoPixelSurf || slowwalk || fakeduck || autoPeek || prepareRevolver;
+        || zoom || thirdperson || freeCam || autostrafe || blockbot || edgejump || minijump || jumpBug || edgebug || autoPixelSurf || slowwalk || fakeduck || autoPeek || prepareRevolver;
 }
 
 void Misc::showKeybinds() noexcept
@@ -1515,6 +1516,8 @@ void Misc::showKeybinds() noexcept
     if (config->visuals.freeCam)
         config->visuals.freeCamKey.showKeybind();
 
+    if (config->misc.autoStrafe)
+        config->misc.autoStrafeKey.showKeybind();
     if (config->misc.blockBot)
         config->misc.blockBotKey.showKeybind();
     if (config->misc.edgeJump)
@@ -2144,7 +2147,7 @@ void Misc::revealRanks(UserCmd* cmd) noexcept
 
 void Misc::autoStrafe(UserCmd* cmd, Vector& currentViewAngles) noexcept
 {
-    if (!config->misc.autoStrafe)
+    if (!config->misc.autoStrafe || !config->misc.autoStrafeKey.isActive())
         return;
     
     if (!localPlayer || !localPlayer->isAlive())
@@ -2755,6 +2758,7 @@ void Misc::updateEventListeners(bool forceRemove) noexcept
 
 void Misc::updateInput() noexcept
 {
+    config->misc.autoStrafeKey.handleToggle();
     config->misc.blockBotKey.handleToggle();
     config->misc.edgeJumpKey.handleToggle();
     config->misc.miniJumpKey.handleToggle();
