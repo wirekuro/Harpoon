@@ -570,9 +570,10 @@ static void from_json(const json& j, Config::Misc::Watermark& o)
 {
     read(j, "Enabled", o.enabled);
     read(j, "Cheat", o.cheat);
+    read(j, "User", o.user);
     read(j, "Fps", o.fps);
     read(j, "Latency", o.latency);
-    read(j, "Time", o.time);
+    read(j, "Time", o.wtime);
     read<value_t::object>(j, "Pos", o.pos);
 }
 
@@ -1221,9 +1222,10 @@ static void to_json(json& j, const Config::Misc::Watermark& o, const Config::Mis
 {
     WRITE("Enabled", enabled);
     WRITE("Cheat", cheat);
+    WRITE("User", user);
     WRITE("Fps", fps);
     WRITE("Latency", latency);
-    WRITE("Time", time);
+    WRITE("Time", wtime);
     if (const auto window = ImGui::FindWindowByName("Watermark")) {
         j["Pos"] = window->Pos;
     }
