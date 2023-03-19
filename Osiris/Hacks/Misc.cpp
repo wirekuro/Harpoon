@@ -1666,6 +1666,9 @@ void Misc::watermark() noexcept
 
     char* username = getenv("username");
 
+    static auto frameRate = 1.0f;
+    frameRate = 0.9f * frameRate + 0.1f * memory->globalVars->absoluteFrameTime;
+    
     static auto lastTime = 0.0f;
     if (memory->globalVars->realtime - lastTime < 1.0f)
         return;
